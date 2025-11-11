@@ -66,7 +66,7 @@ public class AirlineDashboardServlet extends HttpServlet {
             Flight flight = Flight.builder().airline(airline).flightNumber(flightNumber)
                     .departureCity(departureCity).destinationCity(destinationCity)
                     .departureTime(departureTime).arrivalTime(arrivalTime).price(price)
-                    .totalSeats(totalSeats).aircraftType(aircraftType).build();
+                    .totalSeats(totalSeats).availableSeats(totalSeats).aircraftType(aircraftType).build();
 
             flightService.saveOrUpdate(flight);
 
