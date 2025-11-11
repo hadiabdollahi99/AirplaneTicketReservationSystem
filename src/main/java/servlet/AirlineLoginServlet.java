@@ -41,36 +41,15 @@ public class AirlineLoginServlet extends HttpServlet {
 
         Airline airline = airlineService.findByEmail(email);
 
-        if (PasswordUtil.verifyPassword(password,airline.getPassword())){
-                HttpSession session = request.getSession();
-                session.setAttribute("airline",airline);
-                response.sendRedirect(request.getContextPath()+"/airline-dashboard");
-                return;
-            }
-//            HttpSession session = req.getSession();
-//            session.setAttribute("user",user);
-//            resp.sendRedirect(req.getContextPath()+"/admin");
-//            return;
+        if (PasswordUtil.verifyPassword(password, airline.getPassword())) {
+            HttpSession session = request.getSession();
+            session.setAttribute("airline", airline);
+            response.sendRedirect(request.getContextPath() + "/airline-dashboard");
+            return;
+        }
+
         response.setContentType("text/html");
         PrintWriter writer = response.getWriter();
         writer.println("<h1 style=\"color:orange\">This airline cannot find!</h1>");
-        }
-
-
-
-//        if (PasswordUtil.verifyPassword(password,airline.getPassword())){
-//            airline = airlineService.validateAirline(email, password);
-//        }
-
-//        if (airline != null) {
-//            // Create session
-//            HttpSession session = request.getSession();
-//            session.setAttribute("airline", airline);
-////            session.setMaxInactiveInterval(30 * 60); // 30 minutes
-//            response.sendRedirect(request.getContextPath()+"/airline-dashboard");
-//        } else {
-//            String message = "Invalid email or password!";
-//            request.setAttribute("message", message);
-//            request.getRequestDispatcher("airline-login.jsp").forward(request,response);
-//        }
     }
+}
