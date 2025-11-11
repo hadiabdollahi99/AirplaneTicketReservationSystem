@@ -14,11 +14,6 @@ public class AirlineServiceImpl extends BaseServiceImpl<Long, Airline, AirlineRe
 
 
     @Override
-    public Airline validateAirline(String email, String password) {
-        return baseRepository.validateAirline(email,password);
-    }
-
-    @Override
     public Airline findByEmail(String email) {
         Optional<Airline> airlineOptional = baseRepository.findByEmail(email);
         if (airlineOptional.isPresent())
