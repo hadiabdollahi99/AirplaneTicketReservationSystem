@@ -45,7 +45,6 @@ public class FlightRepositoryImpl extends BaseRepositoryImpl<Long, Flight> imple
         hql.append("AND destinationCity = :destinationCity ");
         hql.append("AND departureTime > :now ");
 
-        // Add sorting
         switch (sortBy) {
             case "price":
                 hql.append("ORDER BY price ");
